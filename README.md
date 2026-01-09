@@ -20,6 +20,7 @@ A modern, polished e-commerce store built with Next.js, featuring a beautiful UI
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Styling
 - **Lucide React** - Icons
+- **Cloudinary** - Image hosting and optimization
 - **LocalStorage** - Data persistence
 
 ## Getting Started
@@ -67,6 +68,12 @@ app/
 
 Create a `.env.local` file in the root directory:
 
+**Option 1 (Recommended):**
+```env
+CLOUDINARY_URL=cloudinary://your_api_key:your_api_secret@your_cloud_name
+```
+
+**Option 2:**
 ```env
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
@@ -85,10 +92,9 @@ CLOUDINARY_API_SECRET=your_api_secret
 1. Push your code to GitHub
 2. Go to [Vercel](https://vercel.com)
 3. Import your GitHub repository
-4. Add environment variables in Vercel dashboard:
-   - `CLOUDINARY_CLOUD_NAME`
-   - `CLOUDINARY_API_KEY`
-   - `CLOUDINARY_API_SECRET`
+4. Add environment variable in Vercel dashboard:
+   - `CLOUDINARY_URL` = `cloudinary://your_api_key:your_api_secret@your_cloud_name`
+   - OR use three separate variables: `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`
 5. Deploy!
 
 See `DEPLOYMENT.md` for detailed instructions.

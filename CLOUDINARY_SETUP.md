@@ -34,6 +34,13 @@ cp .env.example .env.local
 ```
 
 2. Edit `.env.local` and add your credentials:
+
+**Option 1: Using CLOUDINARY_URL (recommended):**
+```env
+CLOUDINARY_URL=cloudinary://your_api_key:your_api_secret@your_cloud_name
+```
+
+**Option 2: Using individual variables:**
 ```env
 CLOUDINARY_CLOUD_NAME=your_cloud_name_here
 CLOUDINARY_API_KEY=your_api_key_here
@@ -49,8 +56,14 @@ npm run dev
 
 1. Go to your Vercel project dashboard
 2. Navigate to **Settings** → **Environment Variables**
-3. Add these three variables:
+3. Add environment variable(s):
 
+   **Option 1: Using CLOUDINARY_URL (recommended - single variable):**
+   | Name | Value |
+   |------|-------|
+   | `CLOUDINARY_URL` | `cloudinary://your_api_key:your_api_secret@your_cloud_name` |
+
+   **Option 2: Using individual variables:**
    | Name | Value |
    |------|-------|
    | `CLOUDINARY_CLOUD_NAME` | Your cloud name |

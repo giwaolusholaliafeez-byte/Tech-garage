@@ -93,7 +93,9 @@ vercel
 
 3. **Set Environment Variables in Vercel**:
    - Go to your project → Settings → Environment Variables
-   - Add these three variables:
+   - **Option 1 (Recommended):** Add single variable:
+     - `CLOUDINARY_URL` = `cloudinary://your_api_key:your_api_secret@your_cloud_name`
+   - **Option 2:** Add three separate variables:
      - `CLOUDINARY_CLOUD_NAME` = your cloud name
      - `CLOUDINARY_API_KEY` = your API key
      - `CLOUDINARY_API_SECRET` = your API secret
@@ -101,10 +103,15 @@ vercel
 
 4. **For Local Development**:
    - Copy `.env.example` to `.env.local`
-   - Fill in your Cloudinary credentials
+   - Fill in your Cloudinary credentials (use `CLOUDINARY_URL` format recommended)
    - Restart your dev server
 
 ### Environment Variables
+
+**Option 1 (Recommended):**
+- `CLOUDINARY_URL` - Single variable: `cloudinary://api_key:api_secret@cloud_name`
+
+**Option 2:**
 - `CLOUDINARY_CLOUD_NAME` - Your Cloudinary cloud name
 - `CLOUDINARY_API_KEY` - Your Cloudinary API key
 - `CLOUDINARY_API_SECRET` - Your Cloudinary API secret

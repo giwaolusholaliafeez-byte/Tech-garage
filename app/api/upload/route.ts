@@ -1,17 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { v2 as cloudinary } from 'cloudinary';
 
-// Configure Cloudinary
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+// Configure Cloudinary - supports both CLOUDINARY_URL and individual env vars
+if (process.env.CLOUDINARY_URL) {
+  // Use CLOUDINARY_URL if provided (format: cloudinary://api_key:api_secret@cloud_name)
+  cloudinary.config();
+} else {
+  // Fallback to individual environment variables
+  cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+  });
+}
 
 export async function POST(request: NextRequest) {
   try {
     // Check if Cloudinary is configured
-    if (!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
+    const isConfigured = process.env.CLOUDINARY_URL || 
+      (process.env.CLOUDINARY_CLOUD_NAME && process.env.CLOUDINARY_API_KEY && process.env.CLOUDINARY_API_SECRET);
+    
+    if (!isConfigured) {
       // Fallback to local storage if Cloudinary not configured
       const formData = await request.formData();
       const file = formData.get('file') as File;
