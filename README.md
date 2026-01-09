@@ -63,6 +63,21 @@ app/
 └── hooks/          # Custom hooks
 ```
 
+## Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+```
+
+**Get your Cloudinary credentials:**
+1. Sign up at [cloudinary.com](https://cloudinary.com) (free tier available)
+2. Go to Dashboard → Settings
+3. Copy your Cloud Name, API Key, and API Secret
+
 ## Deployment
 
 ### Deploy to Vercel
@@ -70,11 +85,13 @@ app/
 1. Push your code to GitHub
 2. Go to [Vercel](https://vercel.com)
 3. Import your GitHub repository
-4. Vercel will automatically detect Next.js and deploy
+4. Add environment variables in Vercel dashboard:
+   - `CLOUDINARY_CLOUD_NAME`
+   - `CLOUDINARY_API_KEY`
+   - `CLOUDINARY_API_SECRET`
+5. Deploy!
 
-### Environment Variables
-
-No environment variables required for basic functionality.
+See `DEPLOYMENT.md` for detailed instructions.
 
 ## License
 

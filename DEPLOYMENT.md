@@ -79,16 +79,35 @@ vercel
 
 ## 📝 Important Notes
 
-### File Uploads
-- **Local uploads won't work on Vercel** (serverless functions are read-only)
-- For production, you'll need to use:
-  - **Cloudinary** (recommended)
-  - **AWS S3**
-  - **Image URLs** (external hosting)
+### File Uploads with Cloudinary
+
+1. **Sign up for Cloudinary** (free tier available):
+   - Go to [cloudinary.com](https://cloudinary.com)
+   - Create a free account
+   - Go to Dashboard → Settings
+
+2. **Get your credentials**:
+   - Cloud Name
+   - API Key
+   - API Secret
+
+3. **Set Environment Variables in Vercel**:
+   - Go to your project → Settings → Environment Variables
+   - Add these three variables:
+     - `CLOUDINARY_CLOUD_NAME` = your cloud name
+     - `CLOUDINARY_API_KEY` = your API key
+     - `CLOUDINARY_API_SECRET` = your API secret
+   - Click "Save"
+
+4. **For Local Development**:
+   - Copy `.env.example` to `.env.local`
+   - Fill in your Cloudinary credentials
+   - Restart your dev server
 
 ### Environment Variables
-- Currently none required
-- If you add image hosting services, add them in Vercel dashboard → Settings → Environment Variables
+- `CLOUDINARY_CLOUD_NAME` - Your Cloudinary cloud name
+- `CLOUDINARY_API_KEY` - Your Cloudinary API key
+- `CLOUDINARY_API_SECRET` - Your Cloudinary API secret
 
 ### Custom Domain
 1. Go to Vercel project → Settings → Domains
